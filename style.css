@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: #e5e7eb;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar {
+  background: rgba(2,6,23,0.85);
+  position: sticky;
+  top: 0;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+nav a {
+  margin-left: 20px;
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #c7d2fe;
+}
+
+.btn {
+  background: #6366f1;
+  padding: 12px 28px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.small {
+  padding: 8px 18px;
+}
+
+.btn.glow {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #6366f1; }
+  50% { box-shadow: 0 0 35px #6366f1; }
+  100% { box-shadow: 0 0 10px #6366f1; }
+}
+
+.features {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #020617;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.status {
+  padding: 80px 0;
+}
+
+.status-box {
+  background: #020617;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.server-icon {
+  width: 96px;
+  border-radius: 16px;
+  margin: 15px auto;
+}
+
+.player-list {
+  margin-top: 15px;
+  color: #c7d2fe;
+}
+
+.discord {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}
+
+.admin-panel {
+  max-width: 400px;
+  margin: 120px auto;
+  background: #020617;
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #020617;
+  padding: 14px 24px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #020617;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 14px;
+  }
+  nav.show { display: flex; }
+  .menu-toggle { display: block; }
+}
