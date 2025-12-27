@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<script>
+  const expiry = localStorage.getItem("adminExpiry");
+  if (
+    localStorage.getItem("adminAuth") !== "true" ||
+    Date.now() > expiry
+  ) {
+    localStorage.clear();
+    window.location.href = "login.html";
+  }
+</script>
+
+<div class="admin-panel">
+  <h2>Admin Panel</h2>
+
+  <input type="text" id="ipInput" placeholder="Server IP">
+  <input type="number" id="refreshInput" placeholder="Refresh interval (seconds)">
+
+  <button class="btn" onclick="saveSettings()">Save Settings</button>
+  <button class="btn" onclick="logout()">Logout</button>
+
+  <p id="saved"></p>
+</div>
+
+<script>
+  const ipInput = document.getElementById("ipInput");
+  const refreshInput = document.getElementById("refreshInput");
+
+  ipInput.value = localStorage.getItem("serverIP") || "play.minegg.net";
+  refreshInput.value = localStorage.getItem("refreshInterval") || 30;
+
+  function saveSettings() {
+    localStorage.setItem("serverIP", ipInput.value);
+    localStorage.setItem("refreshInterval", refreshInput.value);
+    document.getElementById("saved").innerText = "Saved ✔";
+  }
+
+  function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
