@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<div class="admin-panel">
+  <h2>Admin Login</h2>
+  <input type="password" id="password" placeholder="Admin password">
+  <button class="btn" onclick="login()">Login</button>
+  <p id="error"></p>
+</div>
+
+<script>
+  const ADMIN_PASSWORD = "CHANGE_THIS_PASSWORD";
+
+  function login() {
+    const input = document.getElementById("password").value;
+    if (input === ADMIN_PASSWORD) {
+      localStorage.setItem("adminAuth", "true");
+      localStorage.setItem("adminExpiry", Date.now() + 3600000);
+      window.location.href = "admin.html";
+    } else {
+      document.getElementById("error").innerText = "Wrong password";
+    }
+  }
+</script>
+
+</body>
+</html>
