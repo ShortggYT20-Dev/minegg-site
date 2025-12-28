@@ -7,7 +7,7 @@ function fetchStatus() {
   fetch(`https://api.mcsrvstat.us/2/${ip}`)
     .then(r => r.json())
     .then(d => {
-      online.textContent = d.online ? "Online" : "Offline";
+      online.textContent = d.online ? "🟢 Online" : "🔴 Offline";
       players.textContent = `${d.players?.online || 0}/${d.players?.max || 0}`;
       motd.innerHTML = d.motd?.html?.join("<br>") || "";
       ping.textContent =
