@@ -34,15 +34,6 @@
 </div>
 
 <script>
-  const ipInput = document.getElementById("ipInput");
-  const refreshInput = document.getElementById("refreshInput");
-  const discordInput = document.getElementById("discordInput");
-  const saved = document.getElementById("saved");
-
-  ipInput.value = localStorage.getItem("serverIP") || "play.minegg.net";
-  refreshInput.value = localStorage.getItem("refreshInterval") || 30;
-  discordInput.value = localStorage.getItem("discordWidget") || "";
-
   function saveSettings() {
     localStorage.setItem("serverIP", ipInput.value.trim());
     localStorage.setItem("refreshInterval", refreshInput.value);
@@ -51,12 +42,9 @@
     saved.textContent = "Saved ✔";
     saved.style.color = "#22c55e";
 
-    setTimeout(() => saved.textContent = "", 2000);
-  }
-
-  function logout() {
-    localStorage.clear();
-    location.href = "login.html";
+    setTimeout(() => {
+      location.reload(); // 🔄 auto-refresh admin panel
+    }, 1200);
   }
 </script>
 
