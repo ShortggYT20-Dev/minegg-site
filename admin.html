@@ -1,100 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Admin Panel</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
-<!-- ---------- AUTH CHECK ---------- -->
 <script>
   const expiry = localStorage.getItem("adminExpiry");
-
-  if (
-    localStorage.getItem("adminAuth") !== "true" ||
-    !expiry ||
-    Date.now() > expiry
-  ) {
+  if (localStorage.getItem("adminAuth") !== "true" || Date.now() > expiry) {
     localStorage.clear();
-    window.location.href = "login.html";
+    location.href = "login.html";
   }
 </script>
 
-<!-- ---------- NAVBAR ---------- -->
-<header class="navbar">
-  <div class="container nav-flex">
-
-    <!-- LOGO -->
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Minegg Network Logo">
-    </a>
-
-    <nav>
-      <span style="opacity:0.7;">Admin Panel</span>
-    </nav>
-
-  </div>
-</header>
-
-<!-- ---------- ADMIN PANEL ---------- -->
-<div class="admin-panel">
+<div class="admin-panel fade-up">
   <h2>Admin Panel</h2>
 
-  <input
-    type="text"
-    id="ipInput"
-    placeholder="Minecraft Server IP"
-  >
+  <input id="ip" placeholder="Server IP">
+  <input id="refresh" type="number" min="5" placeholder="Refresh Interval (sec)">
+  <input id="discord" placeholder="Discord Widget Embed URL">
 
-  <input
-    type="number"
-    id="refreshInput"
-    placeholder="Refresh interval (seconds)"
-    min="5"
-  >
-
-  <input
-    type="text"
-    id="discordInput"
-    placeholder="Discord Widget Embed URL"
-  >
-
-  <button class="btn" onclick="saveSettings()">Save Settings</button>
+  <button class="btn" onclick="save()">Save</button>
   <button class="btn small" onclick="logout()">Logout</button>
 
   <p id="saved"></p>
 </div>
 
-<!-- ---------- LOGIC ---------- -->
 <script>
-  const ipInput = document.getElementById("ipInput");
-  const refreshInput = document.getElementById("refreshInput");
-  const discordInput = document.getElementById("discordInput");
-  const savedText = document.getElementById("saved");
+  ip.value = localStorage.getItem("serverIP") || "play.minegg.net";
+  refresh.value = localStorage.getItem("refreshInterval") || 30;
+  discord.value = localStorage.getItem("discordWidget") || "";
 
-  /* Load saved settings */
-  ipInput.value = localStorage.getItem("serverIP") || "play.minegg.net";
-  refreshInput.value = localStorage.getItem("refreshInterval") || 30;
-  discordInput.value = localStorage.getItem("discordWidget") || "";
-
-  function saveSettings() {
-    localStorage.setItem("serverIP", ipInput.value.trim());
-    localStorage.setItem("refreshInterval", refreshInput.value);
-    localStorage.setItem("discordWidget", discordInput.value.trim());
-
-    savedText.textContent = "Saved ✔";
-    savedText.style.color = "#22c55e";
-
-    setTimeout(() => {
-      savedText.textContent = "";
-    }, 2000);
+  function save() {
+    localStorage.setItem("serverIP", ip.value.trim());
+    localStorage.setItem("refreshInterval", refresh.value);
+    localStorage.setItem("discordWidget", discord.value.trim());
+    saved.textContent = "Saved ✔";
+    setTimeout(() => saved.textContent = "", 2000);
   }
 
   function logout() {
     localStorage.clear();
-    window.location.href = "login.html";
+    location.href = "login.html";
   }
 </script>
 

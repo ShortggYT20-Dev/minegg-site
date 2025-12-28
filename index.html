@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minegg Network</title>
 
+  <link rel="icon" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
 <header class="navbar">
   <div class="container nav-flex">
-
-    <!-- LOGO (clickable) -->
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Minegg Network Logo">
+      <img src="logo.png" alt="Minegg Network">
     </a>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -24,76 +22,45 @@
     <nav id="nav-menu">
       <a href="#features">Features</a>
       <a href="#status">Status</a>
-
-      <!-- ADMIN LINK (dynamic) -->
       <a id="adminLink" href="login.html" class="btn small">Admin</a>
     </nav>
-
   </div>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h1>Minegg Network</h1>
-    <p>Premium Minecraft experience with custom features and blazing-fast servers.</p>
-    <button class="btn glow" onclick="copyIP()">Join Now</button>
-  </div>
+  <h1 class="fade-up">Minegg Network</h1>
+  <p class="fade-up">Premium Minecraft experience with blazing-fast servers.</p>
+  <button class="btn glow fade-up" onclick="copyIP()">Join Now</button>
 </section>
 
 <section class="features" id="features">
   <div class="container grid">
-    <div class="card">⚡ Fast Infrastructure</div>
-    <div class="card">🎮 Custom Gamemodes</div>
-    <div class="card">🛡️ Active Moderation</div>
+    <div class="card fade-up">⚡ Fast Servers</div>
+    <div class="card fade-up">🎮 Custom Gamemodes</div>
+    <div class="card fade-up">🛡️ Active Moderation</div>
   </div>
 </section>
 
 <section class="status" id="status">
-  <div class="container status-box">
+  <div class="status-box fade-up">
     <h2>Server Status</h2>
-    <img id="server-icon" class="server-icon" />
+    <img id="server-icon" class="server-icon">
     <div id="motd"></div>
     <p id="server-ip"></p>
     <div id="status-text">Checking...</div>
     <div id="players"></div>
-    <div id="player-list" class="player-list"></div>
+    <div id="player-list"></div>
   </div>
 </section>
 
 <section class="discord">
-  <iframe
-    id="discordWidget"
-    src=""
-    width="350"
-    height="500"
-    allowtransparency="true"
-    frameborder="0"
-    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-  </iframe>
+  <iframe id="discordWidget" width="350" height="500" frameborder="0"></iframe>
 </section>
 
-<footer>
-  © 2025 Minegg Network
-</footer>
+<footer>© 2025 Minegg Network</footer>
 
 <div id="toast">IP Copied!</div>
 
 <script src="script.js"></script>
-
-<!-- ✅ ADMIN AUTH STATE -->
-<script>
-  const adminLink = document.getElementById("adminLink");
-  const expiry = localStorage.getItem("adminExpiry");
-
-  if (
-    localStorage.getItem("adminAuth") === "true" &&
-    expiry &&
-    Date.now() < expiry
-  ) {
-    adminLink.textContent = "Admin Panel";
-    adminLink.href = "admin.html";
-  }
-</script>
-
 </body>
 </html>
