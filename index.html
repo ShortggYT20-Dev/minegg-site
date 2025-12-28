@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minegg Network</title>
 
+  <link rel="icon" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="logo.png">
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -36,7 +34,8 @@
 </section>
 
 <section id="how" class="features">
-  <div class="container grid">
+  <h2>How to Join</h2>
+  <div class="grid">
     <div class="card">1️⃣ Open Minecraft</div>
     <div class="card">2️⃣ Multiplayer → Add Server</div>
     <div class="card">3️⃣ Join & Play</div>
@@ -48,16 +47,14 @@
     <h2>Server Status</h2>
 
     <img id="server-icon" class="server-icon">
-    <div id="motd"></div>
+    <div id="motd">Loading...</div>
 
-    <p id="server-ip"></p>
-    <p id="players"></p>
-    <p id="status-text"></p>
-    <p id="ping" class="ping">--</p>
+    <p><strong>IP:</strong> <span id="server-ip"></span></p>
+    <p><strong>Players:</strong> <span id="players">0/0</span></p>
+    <p><strong>Status:</strong> <span id="online">Checking...</span></p>
+    <p><strong>Ping:</strong> <span id="ping">-- ms</span></p>
 
     <div id="player-list"></div>
-
-    <canvas id="playerChart"></canvas>
   </div>
 </section>
 

@@ -1,25 +1,19 @@
-const ipInput = document.getElementById("ipInput");
-const refreshInput = document.getElementById("refreshInput");
-const discordInput = document.getElementById("discordInput");
-const saved = document.getElementById("saved");
-
-ipInput.value = localStorage.getItem("serverIP") || "play.minegg.net";
-refreshInput.value = localStorage.getItem("refreshInterval") || 30;
-discordInput.value = localStorage.getItem("discordWidget") || "";
+document.getElementById("ip").value =
+  localStorage.getItem("serverIP") || "play.minegg.net";
+document.getElementById("refresh").value =
+  localStorage.getItem("refreshInterval") || 30;
+document.getElementById("discord").value =
+  localStorage.getItem("discordWidget") || "";
 
 function save() {
-  localStorage.setItem("serverIP", ipInput.value.trim());
-  localStorage.setItem("refreshInterval", refreshInput.value);
-  localStorage.setItem("discordWidget", discordInput.value.trim());
-
-  saved.textContent = "Saved ✔";
-
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 1200);
+  localStorage.setItem("serverIP", ip.value);
+  localStorage.setItem("refreshInterval", refresh.value);
+  localStorage.setItem("discordWidget", discord.value);
+  document.getElementById("saved").textContent = "Saved ✔";
+  setTimeout(() => location.reload(), 1000);
 }
 
 function logout() {
   localStorage.clear();
-  window.location.href = "login.html";
+  location.href = "login.html";
 }

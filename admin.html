@@ -6,20 +6,12 @@
 </head>
 <body>
 
-<script>
-  const expiry = localStorage.getItem("adminExpiry");
-  if (!expiry || Date.now() > expiry || localStorage.getItem("adminAuth") !== "true") {
-    localStorage.clear();
-    window.location.href = "login.html";
-  }
-</script>
-
 <div class="admin-panel">
   <h2>Admin Panel</h2>
 
-  <input id="ipInput" placeholder="Server IP">
-  <input id="refreshInput" type="number" placeholder="Refresh Interval (sec)">
-  <input id="discordInput" placeholder="Discord Widget URL">
+  <input id="ip">
+  <input id="refresh" type="number">
+  <input id="discord">
 
   <button class="btn" onclick="save()">Save</button>
   <button class="btn small" onclick="logout()">Logout</button>

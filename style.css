@@ -5,6 +5,7 @@ body {
   font-family: Poppins, sans-serif;
   background: radial-gradient(circle at top, #1e293b, #020617);
   color: #e5e7eb;
+  text-align: center;
 }
 
 .container {
@@ -14,10 +15,9 @@ body {
 }
 
 .navbar {
-  background: rgba(2,6,23,0.9);
+  background: rgba(2,6,23,0.85);
   position: sticky;
   top: 0;
-  z-index: 10;
 }
 
 .nav-flex {
@@ -26,9 +26,7 @@ body {
   align-items: center;
 }
 
-.logo img {
-  height: 32px;
-}
+.logo img { height: 32px; }
 
 nav a {
   margin-left: 20px;
@@ -36,53 +34,36 @@ nav a {
   text-decoration: none;
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+.menu-toggle { display: none; cursor: pointer; }
 
-.hero {
-  padding: 140px 20px;
-  text-align: center;
-  background: linear-gradient(120deg, #020617, #1e293b, #020617);
-  background-size: 300% 300%;
-  animation: bgMove 12s infinite;
-}
-
-@keyframes bgMove {
-  0% { background-position: 0% }
-  50% { background-position: 100% }
-  100% { background-position: 0% }
-}
+.hero { padding: 120px 20px; }
 
 .btn {
   background: #6366f1;
-  padding: 12px 28px;
-  border-radius: 10px;
   border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
   color: white;
-  font-weight: 600;
   cursor: pointer;
 }
 
-.btn.small {
-  padding: 8px 16px;
-}
+.btn.small { padding: 8px 18px; }
 
-.glow {
+.btn.glow {
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 10px #6366f1 }
-  50% { box-shadow: 0 0 30px #6366f1 }
-  100% { box-shadow: 0 0 10px #6366f1 }
+  0% { box-shadow: 0 0 10px #6366f1; }
+  50% { box-shadow: 0 0 30px #6366f1; }
+  100% { box-shadow: 0 0 10px #6366f1; }
 }
+
+.features { padding: 80px 20px; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 20px;
 }
 
@@ -90,8 +71,9 @@ nav a {
   background: #020617;
   padding: 30px;
   border-radius: 18px;
-  text-align: center;
 }
+
+.status { padding: 80px 20px; }
 
 .status-box {
   max-width: 520px;
@@ -99,26 +81,17 @@ nav a {
   background: #020617;
   padding: 40px;
   border-radius: 20px;
-  text-align: center;
 }
 
 .server-icon {
   width: 96px;
-  margin: 15px auto;
+  border-radius: 12px;
 }
 
-.ping.good { color: #22c55e; }
-.ping.ok { color: #eab308; }
-.ping.bad { color: #ef4444; }
-
-.discord {
-  display: flex;
-  justify-content: center;
-  padding: 60px;
-}
+.discord { padding: 60px; display: flex; justify-content: center; }
 
 footer {
-  text-align: center;
+  background: #020617;
   padding: 20px;
 }
 
@@ -130,23 +103,12 @@ footer {
   padding: 14px 24px;
   border-radius: 12px;
   opacity: 0;
+  transition: 0.3s;
 }
 
-#toast.show {
-  opacity: 1;
-}
+#toast.show { opacity: 1; }
 
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+@media (max-width:768px) {
+  nav { display: none; }
+  .menu-toggle { display: block; }
 }

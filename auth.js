@@ -1,12 +1,9 @@
 function login() {
-  const user = document.getElementById("user").value;
-  const pass = document.getElementById("pass").value;
-
-  if (user === "admin" && pass === "minegg") {
+  if (document.getElementById("pass").value === "admin123") {
     localStorage.setItem("adminAuth", "true");
     localStorage.setItem("adminExpiry", Date.now() + 3600000);
-    window.location.href = "admin.html";
+    window.location = "admin.html";
   } else {
-    document.getElementById("error").textContent = "Invalid login";
+    document.getElementById("err").textContent = "Wrong password";
   }
 }
