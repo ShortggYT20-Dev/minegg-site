@@ -11,7 +11,7 @@
 
 body.light {
   --bg-main: linear-gradient(180deg, #f8fafc, #e2e8f0);
-  --bg-card: #ffffff;
+  --bg-card: #464242b9;
   --text-main: #020617;
 }
 
