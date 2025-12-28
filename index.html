@@ -1,100 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MineGG Lifesteal | Server Status</title>
-
-    <!-- Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MineGG Lifesteal | Server Status</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-container">
-            <h1 class="logo">MineGG Lifesteal</h1>
-            <nav class="nav">
-                <a href="#status">Status</a>
-                <a href="#connect">Connect</a>
-                <a href="#about">About</a>
-            </nav>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="themeSwitch">
+      <span class="slider"></span>
+    </label>
+    <span id="themeLabel">Light Mode</span>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <h1 class="logo">MineGG Lifesteal</h1>
+      <nav class="nav">
+        <a href="#status">Status</a>
+        <a href="#connect">Connect</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>Live Server Status</h2>
+      <p>Check if MineGG Lifesteal is Online & Who’s Playing!</p>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section id="status" class="server-status">
+    <div class="container status-wrapper">
+      <div class="status-card">
+        <h3>MineGG Server</h3>
+
+        <!-- Server Icon -->
+        <img id="serverIcon" class="server-icon" src="" alt="Server Icon">
+
+        <div id="statusIndicator" class="status-indicator offline"></div>
+        <p id="serverStatusText">Loading server status...</p>
+
+        <div class="stats">
+          <div><strong>Online:</strong> <span id="onlinePlayers">-</span></div>
+          <div><strong>Max Players:</strong> <span id="maxPlayers">-</span></div>
+          <div><strong>Ping:</strong> <span id="ping">- ms</span></div>
+          <div><strong>Version:</strong> <span id="version">-</span></div>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h2>Live Server Status</h2>
-            <p>Check if MineGG Lifesteal is Online & Who’s Playing!</p>
-        </div>
-    </section>
+  <!-- Connect Button -->
+  <section id="connect" class="connect">
+    <div class="container">
+      <a href="minecraft://connect/minegg.mine.bz" class="btn btn-primary">Connect in Minecraft</a>
+    </div>
+  </section>
 
-    <!-- Status -->
-    <section id="status" class="server-status">
-        <div class="container status-wrapper">
-            <div class="status-card">
-                <h3>MineGG Server</h3>
-                <div id="statusIndicator" class="status-indicator offline"></div>
-                <p id="serverStatusText">Loading server status...</p>
+  <!-- Footer -->
+  <footer id="about" class="footer">
+    <div class="container">
+      <p>MineGG Lifesteal – A unique Minecraft experience</p>
+      <p>© 2025 MineGG Network</p>
+    </div>
+  </footer>
 
-                <div class="stats">
-                    <div><strong>Online:</strong> <span id="onlinePlayers">-</span></div>
-                    <div><strong>Max Players:</strong> <span id="maxPlayers">-</span></div>
-                    <div><strong>Ping:</strong> <span id="ping">- ms</span></div>
-                    <div><strong>Version:</strong> <span id="version">-</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+  // Dark/Light Mode
+  const themeSwitch = document.getElementById('themeSwitch');
+  const themeLabel = document.getElementById('themeLabel');
+  const savedTheme = localStorage.getItem('theme');
 
-    <!-- Connect Section -->
-    <section id="connect" class="connect">
-        <div class="container">
-            <a href="minecraft://connect/minegg.mine.bz" class="btn btn-primary">Connect in Minecraft</a>
-        </div>
-    </section>
+  document.documentElement.dataset.theme = savedTheme ?? 'dark';
+  themeSwitch.checked = savedTheme === 'light';
 
-    <!-- About -->
-    <footer id="about" class="footer">
-        <div class="container">
-            <p>MineGG Lifesteal – A unique Minecraft experience</p>
-            <p>© 2025 MineGG Network</p>
-        </div>
-    </footer>
+  themeLabel.textContent = themeSwitch.checked ? "Light Mode" : "Dark Mode";
 
-    <!-- JavaScript -->
-    <script>
-        async function fetchServerStatus() {
-            try {
-                // Using MC-API.io to get live server info
-                const response = await fetch('https://api.mc-api.io/v1/server/status/java/minegg.mine.bz');
-                const data = await response.json();
+  themeSwitch.addEventListener('change', () => {
+    const theme = themeSwitch.checked ? 'light' : 'dark';
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+    themeLabel.textContent = themeSwitch.checked ? "Light Mode" : "Dark Mode";
+  });
 
-                const online = data.online;
-                const players = data.players.online;
-                const max = data.players.max;
-                const ver = data.server.name || 'Unknown';
-                const ping = data.ping;
+  // Fetch Minecraft Status and Icon
+  async function fetchServerStatus() {
+    try {
+      const statusRes = await fetch('https://api.mcstatus.io/v2/status/java/minegg.mine.bz');
+      const data = await statusRes.json();
 
-                document.getElementById("statusIndicator").className = online ? 'status-indicator online' : 'status-indicator offline';
-                document.getElementById("serverStatusText").textContent = online ? 'Server is Online' : 'Server is Offline';
-                document.getElementById("onlinePlayers").textContent = online ? players : '0';
-                document.getElementById("maxPlayers").textContent = max;
-                document.getElementById("version").textContent = ver;
-                document.getElementById("ping").textContent = (online ? ping + ' ms' : '-');
-            } catch (err) {
-                document.getElementById("serverStatusText").textContent = "Error loading status";
-            }
-        }
+      const online = data.online;
+      document.getElementById("statusIndicator").className = online ? 'status-indicator online' : 'status-indicator offline';
+      document.getElementById("serverStatusText").textContent = online ? 'Server is Online' : 'Server is Offline';
 
-        fetchServerStatus();
-        // Refresh every 30 seconds
-        setInterval(fetchServerStatus, 30000);
-    </script>
+      document.getElementById("onlinePlayers").textContent = online ? data.players.online : '0';
+      document.getElementById("maxPlayers").textContent = data.players.max;
+      document.getElementById("version").textContent = data.version.name_clean || '-';
+      document.getElementById("ping").textContent = online ? data.ping + ' ms' : '-';
+
+      // Server Icon
+      document.getElementById("serverIcon").src = `https://api.mcstatus.io/v2/icon/minegg.mine.bz`;
+    } catch (err) {
+      document.getElementById("serverStatusText").textContent = "Error loading status";
+    }
+  }
+
+  fetchServerStatus();
+  setInterval(fetchServerStatus, 30000);
+</script>
 
 </body>
 </html>
