@@ -9,11 +9,11 @@
 <div class="admin-panel">
   <h2>Admin Panel</h2>
 
-  <input id="ip">
-  <input id="refresh" type="number">
-  <input id="discord">
+  <input id="ip" placeholder="Server IP">
+  <input id="refresh" type="number" placeholder="Refresh Interval (sec)">
+  <input id="discord" placeholder="Discord Widget URL">
 
-  <button class="btn" onclick="save()">Save</button>
+  <button class="btn primary" onclick="save()">Save</button>
   <button class="btn small" onclick="logout()">Logout</button>
 
   <p id="saved"></p>

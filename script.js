@@ -5,19 +5,18 @@ document.getElementById("server-ip").textContent = ip;
 
 function fetchStatus() {
   fetch(`https://api.mcsrvstat.us/2/${ip}`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("online").textContent = data.online ? "Online" : "Offline";
-      document.getElementById("players").textContent =
-        `${data.players?.online || 0}/${data.players?.max || 0}`;
-      document.getElementById("motd").innerHTML = data.motd?.html?.join("<br>") || "";
-      document.getElementById("ping").textContent =
-        typeof data.debug?.ping === "number" ? data.debug.ping + " ms" : "-- ms";
+    .then(r => r.json())
+    .then(d => {
+      online.textContent = d.online ? "Online" : "Offline";
+      players.textContent = `${d.players?.online || 0}/${d.players?.max || 0}`;
+      motd.innerHTML = d.motd?.html?.join("<br>") || "";
+      ping.textContent =
+        typeof d.debug?.ping === "number" ? d.debug.ping + " ms" : "-- ms";
 
-      if (data.icon) document.getElementById("server-icon").src = data.icon;
+      if (d.icon) serverIcon.src = d.icon;
 
-      document.getElementById("player-list").innerHTML =
-        data.players?.list?.map(p => `<div>${p}</div>`).join("") || "";
+      playerList.innerHTML =
+        d.players?.list?.map(p => `<div>${p}</div>`).join("") || "";
     });
 }
 
@@ -26,9 +25,8 @@ setInterval(fetchStatus, refresh);
 
 function copyIP() {
   navigator.clipboard.writeText(ip);
-  const t = document.getElementById("toast");
-  t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 2000);
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
 function toggleMenu() {
@@ -36,4 +34,4 @@ function toggleMenu() {
 }
 
 const discord = localStorage.getItem("discordWidget");
-if (discord) document.getElementById("discordWidget").src = discord;
+if (discord) discordWidget.src = discord;

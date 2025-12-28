@@ -1,9 +1,16 @@
+:root {
+  --bg: #020617;
+  --glass: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.12);
+  --primary: #6366f1;
+}
+
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: Poppins, sans-serif;
-  background: radial-gradient(circle at top, #1e293b, #020617);
+  font-family: Inter, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
   color: #e5e7eb;
   text-align: center;
 }
@@ -14,101 +21,164 @@ body {
   padding: 0 20px;
 }
 
+/* NAVBAR */
 .navbar {
-  background: rgba(2,6,23,0.85);
+  backdrop-filter: blur(14px);
+  background: rgba(2,6,23,0.75);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .nav-flex {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.logo img { height: 32px; }
+.logo img { height: 30px; }
 
 nav a {
   margin-left: 20px;
-  color: white;
+  color: #e5e7eb;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .menu-toggle { display: none; cursor: pointer; }
 
-.hero { padding: 120px 20px; }
+/* HERO */
+.hero {
+  padding: 120px 20px;
+  animation: fadeUp 1s ease;
+}
 
+.hero h1 { font-size: 3.6rem; }
+.hero p { color: #c7d2fe; }
+
+/* BUTTONS */
 .btn {
-  background: #6366f1;
-  border: none;
   padding: 12px 26px;
-  border-radius: 10px;
-  color: white;
+  border-radius: 12px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
 }
 
 .btn.small { padding: 8px 18px; }
 
-.btn.glow {
-  animation: pulse 2s infinite;
-}
+.glow { animation: pulse 2s infinite; }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 10px #6366f1; }
-  50% { box-shadow: 0 0 30px #6366f1; }
-  100% { box-shadow: 0 0 10px #6366f1; }
+  0% { box-shadow: 0 0 0 var(--primary); }
+  50% { box-shadow: 0 0 30px var(--primary); }
+  100% { box-shadow: 0 0 0 var(--primary); }
 }
 
-.features { padding: 80px 20px; }
+/* SECTIONS */
+.section { padding: 80px 20px; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
   gap: 20px;
 }
 
-.card {
-  background: #020617;
-  padding: 30px;
+/* CARDS */
+.card, .status-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
   border-radius: 18px;
+  padding: 30px;
+  backdrop-filter: blur(18px);
+  transition: transform .3s;
 }
 
-.status { padding: 80px 20px; }
+.card:hover { transform: translateY(-6px); }
 
-.status-box {
+/* STATUS */
+.status-card {
   max-width: 520px;
   margin: auto;
-  background: #020617;
-  padding: 40px;
-  border-radius: 20px;
 }
 
 .server-icon {
-  width: 96px;
+  width: 88px;
+  border-radius: 14px;
+  margin: 15px auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.stats div {
+  background: rgba(0,0,0,0.25);
   border-radius: 12px;
+  padding: 12px;
 }
 
-.discord { padding: 60px; display: flex; justify-content: center; }
-
-footer {
-  background: #020617;
-  padding: 20px;
+.stats span {
+  font-size: .8rem;
+  color: #94a3b8;
 }
 
+/* DISCORD */
+.discord {
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ADMIN */
+.admin-panel {
+  max-width: 420px;
+  margin: 120px auto;
+  padding: 40px;
+  background: var(--glass);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border: none;
+  text-align: center;
+}
+
+/* TOAST */
 #toast {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #020617;
+  background: var(--glass);
   padding: 14px 24px;
   border-radius: 12px;
   opacity: 0;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 #toast.show { opacity: 1; }
 
-@media (max-width:768px) {
-  nav { display: none; }
-  .menu-toggle { display: block; }
+/* MOBILE */
+@media(max-width:768px){
+  nav { display:none; }
+  .menu-toggle{ display:block; }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
 }
