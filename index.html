@@ -17,7 +17,10 @@
       <img src="logo.png" alt="Minegg Network Logo">
     </a>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="right-nav">
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
 
     <nav id="nav-menu">
       <a href="#features">Features</a>
@@ -27,51 +30,49 @@
   </div>
 </header>
 
+<!-- GLOW LINE -->
+<div class="glow-line"></div>
+
 <section class="hero">
-  <div class="container">
+  <div class="container hero-inner">
     <h1>Minegg Network</h1>
     <p>Premium Minecraft experience with custom features.</p>
     <button class="btn glow" onclick="copyIP()">Join Now</button>
   </div>
 </section>
 
+<section class="features" id="features">
+  <div class="container">
+    <div class="grid">
+      <div class="card glow-card">⚡ Fast Infrastructure</div>
+      <div class="card glow-card">🎮 Custom Gamemodes</div>
+      <div class="card glow-card">🛡️ Active Moderation</div>
+    </div>
+  </div>
+</section>
+
 <section class="status" id="status">
-  <div class="container status-box">
-    <h2>Server Status</h2>
+  <div class="container">
+    <div class="status-box glow-card">
+      <h2>Server Status</h2>
+      <img id="server-icon" class="server-icon">
+      <div id="motd"></div>
 
-    <img id="server-icon" class="server-icon" />
-
-    <div id="motd"></div>
-    <p><strong>IP:</strong> <span id="server-ip"></span></p>
-    <p><strong>Players:</strong> <span id="players"></span></p>
-
-    <p>
-      <strong>Status:</strong>
-      <span id="status-text">Checking...</span>
-    </p>
-
-    <p>
-      <strong>Ping:</strong>
-      <span id="ping">-- ms</span>
-    </p>
+      <div class="status-row"><span>IP:</span><span id="server-ip"></span></div>
+      <div class="status-row"><span>Players:</span><span id="players"></span></div>
+      <div class="status-row"><span>Status:</span><span id="status-text"></span></div>
+      <div class="status-row"><span>Ping:</span><span id="ping"></span></div>
+    </div>
   </div>
 </section>
 
 <section class="discord">
-  <iframe
-    id="discordWidget"
-    src=""
-    width="350"
-    height="500"
-    allowtransparency="true"
-    frameborder="0"
-    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-  </iframe>
+  <div class="discord-box glow-card">
+    <iframe id="discordWidget" src="" width="350" height="500"></iframe>
+  </div>
 </section>
 
-<footer>
-  © 2025 Minegg Network
-</footer>
+<footer>© 2025 Minegg Network</footer>
 
 <div id="toast">IP Copied!</div>
 
