@@ -2,74 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minegg Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header class="navbar">
   <div class="container nav-flex">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Minegg Network Logo">
-    </a>
-
-    <div class="right-nav">
-      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </div>
-
-    <nav id="nav-menu">
-      <a href="#features">Features</a>
+    <img src="assets/logo.png" class="logo">
+    <nav>
       <a href="#status">Status</a>
+      <a href="#join">How to Join</a>
       <a href="login.html" class="btn small">Admin</a>
     </nav>
   </div>
 </header>
 
-<!-- GLOW LINE -->
-<div class="glow-line"></div>
-
 <section class="hero">
-  <div class="container hero-inner">
-    <h1>Minegg Network</h1>
-    <p>Premium Minecraft experience with custom features.</p>
-    <button class="btn glow" onclick="copyIP()">Join Now</button>
-  </div>
+  <h1>Minegg Network</h1>
+  <p>Premium Minecraft experience</p>
+  <button class="btn glow" onclick="copyIP()">Join Now</button>
 </section>
 
-<section class="features" id="features">
-  <div class="container">
-    <div class="grid">
-      <div class="card glow-card">⚡ Fast Infrastructure</div>
-      <div class="card glow-card">🎮 Custom Gamemodes</div>
-      <div class="card glow-card">🛡️ Active Moderation</div>
-    </div>
-  </div>
+<section id="status" class="card">
+  <h2>Server Status</h2>
+  <img id="serverIcon" class="server-icon">
+  <p id="motd"></p>
+  <p>IP: <span id="serverIP"></span></p>
+  <p>Players: <span id="players"></span></p>
+  <p>Status: <span id="statusText"></span></p>
+  <canvas id="playerGraph"></canvas>
 </section>
 
-<section class="status" id="status">
-  <div class="container">
-    <div class="status-box glow-card">
-      <h2>Server Status</h2>
-      <img id="server-icon" class="server-icon">
-      <div id="motd"></div>
-
-      <div class="status-row"><span>IP:</span><span id="server-ip"></span></div>
-      <div class="status-row"><span>Players:</span><span id="players"></span></div>
-      <div class="status-row"><span>Status:</span><span id="status-text"></span></div>
-      <div class="status-row"><span>Ping:</span><span id="ping"></span></div>
-    </div>
-  </div>
+<section id="join" class="card">
+  <h2>How to Join</h2>
+  <p>Open Minecraft → Multiplayer → Add Server</p>
+  <p>IP: <b id="joinIP"></b></p>
 </section>
 
-<footer>© 2025 Minegg Network</footer>
+<section class="card">
+  <iframe id="discordWidget" width="350" height="500"></iframe>
+</section>
 
-<div id="toast">IP Copied!</div>
-
-<script src="script.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+<script src="js/realtime.js"></script>
+<script src="js/graph.js"></script>
 </body>
 </html>
