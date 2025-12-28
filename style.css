@@ -31,11 +31,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 14px 0;
 }
 
+/* 🔽 LOGO SIZE FIX */
 .logo img {
-  height: 42px;
+  height: 32px;       /* smaller default size */
+  width: auto;
   display: block;
 }
 
@@ -203,6 +205,12 @@ input {
 /* ---------- MOBILE NAV ---------- */
 
 @media (max-width: 768px) {
+
+  /* 🔽 EVEN SMALLER LOGO ON MOBILE */
+  .logo img {
+    height: 26px;
+  }
+
   nav {
     display: none;
     flex-direction: column;
