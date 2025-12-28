@@ -132,7 +132,7 @@ body {
 }
 
 .glow-card:hover {
-  background: #ffffff;
+  background: #4c4c4cb4;
   color: var(--text-dark);
   box-shadow:
     0 0 0 1px #6366f1,
