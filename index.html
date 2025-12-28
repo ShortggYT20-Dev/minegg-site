@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Minegg Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minegg Network</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="logo.png">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -20,7 +22,7 @@
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <nav id="nav-menu">
-      <a href="#features">Features</a>
+      <a href="#how">How to Join</a>
       <a href="#status">Status</a>
       <a href="login.html" class="btn small">Admin</a>
     </nav>
@@ -29,56 +31,33 @@
 
 <section class="hero">
   <h1>Minegg Network</h1>
-  <p>Premium Minecraft experience with blazing-fast servers.</p>
+  <p>Premium Minecraft experience</p>
   <button class="btn glow" onclick="copyIP()">Join Now</button>
 </section>
 
-<section class="features" id="features">
+<section id="how" class="features">
   <div class="container grid">
-    <div class="card">⚡ Fast Infrastructure</div>
-    <div class="card">🎮 Custom Gamemodes</div>
-    <div class="card">🛡️ Active Moderation</div>
+    <div class="card">1️⃣ Open Minecraft</div>
+    <div class="card">2️⃣ Multiplayer → Add Server</div>
+    <div class="card">3️⃣ Join & Play</div>
   </div>
 </section>
 
-<section class="status" id="status">
+<section id="status" class="status">
   <div class="status-box">
     <h2>Server Status</h2>
 
     <img id="server-icon" class="server-icon">
-
     <div id="motd"></div>
 
-    <p><strong>IP:</strong> <span id="server-ip"></span></p>
-    <p><strong>Players:</strong> <span id="players">0/0</span></p>
-    <p><strong>Ping:</strong> <span id="ping">-- ms</span></p>
+    <p id="server-ip"></p>
+    <p id="players"></p>
+    <p id="status-text"></p>
+    <p id="ping" class="ping">--</p>
 
-    <p id="server-status" class="status-indicator">Checking...</p>
-  </div>
-</section>
+    <div id="player-list"></div>
 
-<section class="how-to-join">
-  <div class="container">
-    <h2>How to Join</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>1️⃣ Open Minecraft</h3>
-        <p>Java Edition (1.8+)</p>
-      </div>
-
-      <div class="card">
-        <h3>2️⃣ Add Server</h3>
-        <p>Multiplayer → Add Server</p>
-      </div>
-
-      <div class="card">
-        <h3>3️⃣ Join</h3>
-        <p>IP: <strong id="join-ip"></strong></p>
-      </div>
-    </div>
-
-    <button class="btn glow" onclick="copyIP()">Copy IP</button>
+    <canvas id="playerChart"></canvas>
   </div>
 </section>
 

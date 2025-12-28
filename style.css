@@ -1,13 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-/* ---------- GLOBAL IMAGE SAFETY ---------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -16,52 +7,32 @@ body {
   color: #e5e7eb;
 }
 
-/* ---------- LAYOUT ---------- */
-
 .container {
-  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   padding: 0 20px;
 }
 
-/* ---------- NAVBAR ---------- */
-
 .navbar {
-  background: rgba(2,6,23,0.85);
+  background: rgba(2,6,23,0.9);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
 }
 
 .nav-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0;
-}
-
-/* ---------- LOGO (HARD SIZE LOCK) ---------- */
-
-.logo {
-  display: flex;
-  align-items: center;
-  max-height: 42px;
 }
 
 .logo img {
   height: 32px;
-  max-height: 32px;
-  width: auto;
-  max-width: 140px;
-  object-fit: contain;
 }
-
-/* ---------- NAV LINKS ---------- */
 
 nav a {
   margin-left: 20px;
-  color: #e5e7eb;
+  color: white;
   text-decoration: none;
 }
 
@@ -71,61 +42,48 @@ nav a {
   cursor: pointer;
 }
 
-/* ---------- HERO ---------- */
-
 .hero {
+  padding: 140px 20px;
   text-align: center;
-  padding: 120px 20px;
+  background: linear-gradient(120deg, #020617, #1e293b, #020617);
+  background-size: 300% 300%;
+  animation: bgMove 12s infinite;
 }
 
-.hero h1 {
-  font-size: 3.5rem;
+@keyframes bgMove {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
 }
-
-.hero p {
-  max-width: 600px;
-  margin: 20px auto;
-  color: #c7d2fe;
-}
-
-/* ---------- BUTTONS ---------- */
 
 .btn {
-  display: block;
-  margin: 20px auto;
   background: #6366f1;
   padding: 12px 28px;
   border-radius: 10px;
+  border: none;
   color: white;
   font-weight: 600;
-  border: none;
   cursor: pointer;
 }
 
 .btn.small {
-  padding: 8px 18px;
+  padding: 8px 16px;
 }
 
-.btn.glow {
+.glow {
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 10px #6366f1; }
-  50% { box-shadow: 0 0 35px #6366f1; }
-  100% { box-shadow: 0 0 10px #6366f1; }
-}
-
-/* ---------- FEATURES ---------- */
-
-.features {
-  padding: 80px 0;
+  0% { box-shadow: 0 0 10px #6366f1 }
+  50% { box-shadow: 0 0 30px #6366f1 }
+  100% { box-shadow: 0 0 10px #6366f1 }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .card {
@@ -133,18 +91,11 @@ nav a {
   padding: 30px;
   border-radius: 18px;
   text-align: center;
-  font-weight: 600;
-}
-
-/* ---------- SERVER STATUS ---------- */
-
-.status {
-  padding: 80px 0;
 }
 
 .status-box {
   max-width: 520px;
-  margin: 0 auto;
+  margin: auto;
   background: #020617;
   padding: 40px;
   border-radius: 20px;
@@ -153,54 +104,23 @@ nav a {
 
 .server-icon {
   width: 96px;
-  border-radius: 16px;
   margin: 15px auto;
 }
 
-.player-list {
-  margin-top: 15px;
-  color: #c7d2fe;
-}
-
-/* ---------- DISCORD ---------- */
+.ping.good { color: #22c55e; }
+.ping.ok { color: #eab308; }
+.ping.bad { color: #ef4444; }
 
 .discord {
   display: flex;
   justify-content: center;
-  padding: 60px 0;
+  padding: 60px;
 }
-
-/* ---------- FOOTER ---------- */
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #020617;
 }
-
-/* ---------- ADMIN / FORMS ---------- */
-
-.admin-panel {
-  max-width: 420px;
-  margin: 120px auto;
-  background: #020617;
-  padding: 40px;
-  border-radius: 18px;
-  text-align: center;
-}
-
-input {
-  display: block;
-  width: 100%;
-  max-width: 360px;
-  margin: 12px auto;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  text-align: center;
-}
-
-/* ---------- TOAST ---------- */
 
 #toast {
   position: fixed;
@@ -210,38 +130,16 @@ input {
   padding: 14px 24px;
   border-radius: 12px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: 0.3s;
 }
 
 #toast.show {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* ---------- MOBILE NAV ---------- */
-
 @media (max-width: 768px) {
-
-  .logo img {
-    height: 26px;
-    max-height: 26px;
-  }
-
   nav {
     display: none;
     flex-direction: column;
-    background: #020617;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 20px;
-    border-radius: 14px;
-    text-align: center;
-  }
-
-  nav a {
-    margin: 10px 0;
   }
 
   nav.show {
@@ -251,21 +149,4 @@ input {
   .menu-toggle {
     display: block;
   }
-}
-
-/* ---------- PING ---------- */
-#ping {
-  font-weight: 700;
-}
-
-#ping.good {
-  color: #22c55e;
-}
-
-#ping.ok {
-  color: #facc15;
-}
-
-#ping.bad {
-  color: #ef4444;
 }

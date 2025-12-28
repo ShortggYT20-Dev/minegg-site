@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Admin Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -8,21 +9,12 @@
 
 <div class="admin-panel">
   <h2>Admin Login</h2>
-  <input id="password" type="password" placeholder="Password">
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
   <button class="btn" onclick="login()">Login</button>
   <p id="error"></p>
 </div>
 
-<script>
-  function login() {
-    if (password.value === "admin123") {
-      localStorage.setItem("adminAuth", "true");
-      location.href = "admin.html";
-    } else {
-      error.textContent = "Incorrect password";
-    }
-  }
-</script>
-
+<script src="auth.js"></script>
 </body>
 </html>

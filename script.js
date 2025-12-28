@@ -1,55 +1,67 @@
-const ip = localStorage.getItem("serverIP") || "play.minegg.net";
-const refresh = (localStorage.getItem("refreshInterval") || 30) * 1000;
+const serverIP = localStorage.getItem("serverIP") || "play.minegg.net";
+const discordURL = localStorage.getItem("discordWidget") || "";
 
-document.getElementById("server-ip").textContent = ip;
-document.getElementById("join-ip").textContent = ip;
+document.getElementById("server-ip").textContent = `IP: ${serverIP}`;
+document.getElementById("discordWidget").src = discordURL;
 
-const discordURL = localStorage.getItem("discordWidget");
-if (discordURL) {
-  document.getElementById("discordWidget").src = discordURL;
-}
+const ctx = document.getElementById("playerChart");
+let history = JSON.parse(localStorage.getItem("playerHistory")) || [];
+
+const chart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: [],
+    datasets: [{
+      data: history,
+      borderColor: "#6366f1",
+      tension: 0.4
+    }]
+  }
+});
 
 async function fetchStatus() {
-  try {
-    const res = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
-    const data = await res.json();
+  const start = performance.now();
+  const res = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
+  const data = await res.json();
+  const ping = Math.round(performance.now() - start);
 
-    document.getElementById("motd").innerHTML =
-      data.motd?.html?.join("") || "No MOTD";
+  const pingEl = document.getElementById("ping");
+  pingEl.textContent = `${ping} ms`;
 
-    document.getElementById("players").textContent =
-      data.players
-        ? `${data.players.online}/${data.players.max}`
-        : "0/0";
+  pingEl.className = "ping " +
+    (ping < 80 ? "good" : ping < 150 ? "ok" : "bad");
 
-    const pingEl = document.getElementById("ping");
-    if (data.debug?.ping) {
-      const p = data.debug.ping;
-      pingEl.textContent = `${p} ms`;
-      pingEl.className = p < 80 ? "good" : p < 150 ? "ok" : "bad";
-    } else pingEl.textContent = "N/A";
+  document.getElementById("status-text").textContent =
+    data.online ? "Online" : "Offline";
 
-    const status = document.getElementById("server-status");
-    status.textContent = data.online ? "🟢 Online" : "🔴 Offline";
-    status.className = `status-indicator ${data.online ? "online" : "offline"}`;
+  document.getElementById("players").textContent =
+    `Players: ${data.players?.online || 0}/${data.players?.max || 0}`;
 
-    if (data.icon) {
-      document.getElementById("server-icon").src = data.icon;
-    }
+  document.getElementById("motd").innerHTML =
+    data.motd?.html?.join("") || "";
 
-  } catch {
-    document.getElementById("server-status").textContent = "🔴 Offline";
+  if (data.icon) {
+    document.getElementById("server-icon").src = data.icon;
   }
+
+  history.push(data.players?.online || 0);
+  if (history.length > 20) history.shift();
+
+  chart.data.labels = history.map((_, i) => i);
+  chart.data.datasets[0].data = history;
+  chart.update();
+
+  localStorage.setItem("playerHistory", JSON.stringify(history));
 }
 
 fetchStatus();
-setInterval(fetchStatus, refresh);
+setInterval(fetchStatus, (localStorage.getItem("refreshInterval") || 30) * 1000);
 
 function copyIP() {
-  navigator.clipboard.writeText(ip);
-  const t = document.getElementById("toast");
-  t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 2000);
+  navigator.clipboard.writeText(serverIP);
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 1500);
 }
 
 function toggleMenu() {
