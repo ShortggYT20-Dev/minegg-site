@@ -191,17 +191,6 @@ body {
   font-weight: 700;
 }
 
-/* ---------- DISCORD ---------- */
-.discord {
-  padding: 80px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.discord-box {
-  padding: 15px;
-}
-
 /* ---------- FOOTER ---------- */
 footer {
   text-align: center;
