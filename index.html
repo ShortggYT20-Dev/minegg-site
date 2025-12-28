@@ -7,13 +7,16 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
 <header class="navbar">
   <div class="container nav-flex">
-    <div class="logo">Minegg</div>
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo.png" alt="Minegg Network Logo">
+    </div>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
@@ -29,7 +32,7 @@
   <div class="container">
     <h1>Minegg Network</h1>
     <p>Premium Minecraft experience with custom features and blazing-fast servers.</p>
-    <a class="btn glow" onclick="copyIP()">Join Now</a>
+    <button class="btn glow" onclick="copyIP()">Join Now</button>
   </div>
 </section>
 
@@ -55,7 +58,8 @@
 
 <section class="discord">
   <iframe
-    src="https://discord.com/widget?id=YOUR_DISCORD_SERVER_ID&theme=dark"
+    id="discordWidget"
+    src=""
     width="350"
     height="500"
     allowtransparency="true"
