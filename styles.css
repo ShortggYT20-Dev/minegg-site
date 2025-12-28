@@ -1,0 +1,144 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0d0d;
+    color: #e7e7e7;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Header */
+.main-header {
+    background: #111;
+    padding: 1rem 0;
+    border-bottom: 2px solid #222;
+}
+
+.main-header .logo {
+    color: #00d8ff;
+    font-size: 1.8rem;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-bar a {
+    color: #e7e7e7;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-bar a:hover {
+    color: #00d8ff;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 3rem 0;
+    background: #121212;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+.hero-section p {
+    margin-bottom: 1rem;
+    opacity: 0.85;
+}
+
+.btn {
+    display: inline-block;
+    background: #00d8ff;
+    color: #000;
+    padding: .8rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #00b8e0;
+}
+
+.btn-accent {
+    background: #ff4c4c;
+    color: #fff;
+}
+
+.btn-accent:hover {
+    background: #e03f3f;
+}
+
+/* Status Section */
+.status-section {
+    padding: 2rem 0;
+}
+
+.status-card {
+    background: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-width: 420px;
+    margin: 1rem auto;
+    border: 2px solid #222;
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0f0;
+}
+
+.status-indicator.online {
+    background: #0f0;
+}
+
+.status-item {
+    margin: .6rem 0;
+    display: flex;
+    gap: .5rem;
+    font-size: 1rem;
+}
+
+/* Sections */
+.about-section, .connect-section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #111;
+    margin-top: 2rem;
+    font-size: .9rem;
+}

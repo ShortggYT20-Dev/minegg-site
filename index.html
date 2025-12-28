@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Minegg Network</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineGG Network Status</title>
 
-  <link rel="icon" href="logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
 
-<body data-theme="dark">
+    <!-- Header / Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">MineGG Network</h1>
+            <nav class="nav-bar">
+                <a href="#status">Status</a>
+                <a href="#about">About</a>
+                <a href="#connect">Connect</a>
+            </nav>
+        </div>
+    </header>
 
-<header class="navbar">
-  <div class="container nav-flex">
-    <div class="logo">
-      <img src="logo.png">
-    </div>
+    <!-- Hero / Welcome Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h2>Welcome to the MineGG Network</h2>
+            <p>Stay updated with live status, server info, and connect instantly!</p>
+            <a href="#status" class="btn">Check Server Status</a>
+        </div>
+    </section>
 
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#status">Status</a>
-      <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
-      <a href="login.html" class="btn small">Admin</a>
-    </nav>
-  </div>
-</header>
+    <!-- Status Section -->
+    <section id="status" class="status-section">
+        <div class="container">
+            <h2>Server Status</h2>
+            <div class="status-card">
+                <div class="status-header">
+                    <span class="status-indicator online"></span>
+                    <span>Online</span>
+                </div>
+                <div class="status-body">
+                    <div class="status-item">
+                        <i class="fa-solid fa-users"></i> Players: <strong>12/100</strong>
+                    </div>
+                    <div class="status-item">
+                        <i class="fa-solid fa-clock"></i> Ping: <strong>35 ms</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="hero fade-in">
-  <h1>Minegg Network</h1>
-  <p>Premium Minecraft experience with modern infrastructure</p>
-  <button class="btn glow">Join Now</button>
-</section>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h3>About MineGG</h3>
+            <p>MineGG is a dedicated Minecraft network focused on community and fun gameplay. Join players around the world daily!</p>
+        </div>
+    </section>
 
-<section id="features" class="container grid">
-  <div class="card glow-border slide-up">⚡ Fast Infrastructure</div>
-  <div class="card glow-border slide-up">🎮 Custom Gamemodes</div>
-  <div class="card glow-border slide-up">🛡️ Active Moderation</div>
-</section>
+    <!-- Connect Section -->
+    <section id="connect" class="connect-section">
+        <div class="container">
+            <h3>Connect Now</h3>
+            <p>Ready to jump in? Use the button below to launch the game and connect instantly.</p>
+            <a href="minecraft://connect/YOUR.SERVER.IP" class="btn btn-accent">Connect in Minecraft</a>
+        </div>
+    </section>
 
-<section id="status" class="container">
-  <div class="status-box glow-border fade-in">
-    <h2>Server Status</h2>
-    <img id="server-icon" class="server-icon">
-    <div id="motd"></div>
-    <p>IP: <span id="server-ip"></span></p>
-    <p>Players: <span id="players"></span></p>
-    <p id="status-text">Checking...</p>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>© 2025 MineGG Network • All rights reserved</p>
+    </footer>
 
-<footer>
-  © 2025 Minegg Network
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
