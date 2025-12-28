@@ -3,80 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MineGG Lifesteal | Server Status</title>
+  <title>MineGG Lifesteal</title>
 
   <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7ieYnE1/jiYFZjD4E4Oyj8K6oS4M+5N4qDmq+/FtpRgOiFjT56Qm/1j7g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Theme Toggle -->
-  <div class="theme-toggle">
-    <label class="switch">
-      <input type="checkbox" id="themeSwitch">
-      <span class="slider"></span>
-    </label>
-    <span id="themeLabel">Light Mode</span>
-  </div>
+  <!-- Navigation -->
+  <header class="nav-bar">
+    <div class="container nav-container">
+      <h1 class="nav-logo">MineGG Lifesteal</h1>
+      <nav class="nav-links">
+        <a href="#status">Status</a>
+        <a href="#info">Features</a>
+        <a href="#connect">Connect</a>
+        <a href="#about">About</a>
+      </nav>
 
-  <header class="header">
-    <h1 class="logo">MineGG Lifesteal</h1>
+      <!-- Theme Toggle -->
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="themeSwitch">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Welcome to MineGG Lifesteal</h2>
-    <p>Your ultimate Minecraft experience — Lifesteal, Survival & PvP!</p>
-  </section>
-
-  <!-- What We Offer -->
-  <section id="info" class="server-info">
-    <h3 class="info-header">What We Offer</h3>
-
-    <div class="features-container">
-
-      <!-- Lifesteal Box -->
-      <div class="feature-box">
-        <i class="fa-solid fa-heart fa-3x fa-beat icon-lifesteal"></i>
-        <h4>Lifesteal Mechanics</h4>
-        <p>Gain strength as you survive and defeat others — your health becomes your power!</p>
+  <!-- Hero / Banner -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <!-- Big Server Name + Optional Logo -->
+      <img src="logo.png" alt="MineGG Logo" class="hero-logo">
+      <h2>Welcome to MineGG Lifesteal</h2>
+      <p>Survive, fight, and become stronger — join now!</p>
+      <div class="hero-buttons">
+        <a href="#status" class="btn btn-light">Server Status</a>
+        <a href="#connect" class="btn btn-accent">Connect Now</a>
       </div>
-
-      <!-- Survival Box -->
-      <div class="feature-box">
-        <i class="fa-solid fa-hammer fa-3x fa-pulse icon-survival"></i>
-        <h4>Survival Gameplay</h4>
-        <p>Build, explore, gather resources, and thrive in a dynamic world.</p>
-      </div>
-
-      <!-- PvP Box -->
-      <div class="feature-box">
-        <i class="fa-solid fa-swords fa-3x icon-pvp"></i>
-        <h4>PvP Battles</h4>
-        <p>Test your combat skills against friends and foes in intense player v player encounters.</p>
-      </div>
-
     </div>
   </section>
 
-    <!-- Server Status -->
-  <section id="status" class="server-status">
+  <!-- Server Status -->
+  <section id="status" class="status-section">
     <div class="status-card">
-      <h3>Live Server Status</h3>
-
-      <!-- Server Icon -->
+      <h3>Server Status</h3>
       <img id="serverIcon" class="server-icon" src="" alt="Server Icon">
-
-      <div id="statusIndicator" class="status-indicator offline"></div>
-      <p id="serverStatusText">Loading server status...</p>
-
+      <p id="serverStatusText">Checking server...</p>
       <div class="stats">
         <div><strong>Online:</strong> <span id="onlinePlayers">-</span></div>
         <div><strong>Max:</strong> <span id="maxPlayers">-</span></div>
@@ -86,17 +63,40 @@
     </div>
   </section>
 
-  <!-- Connect Button -->
-  <section id="connect" class="connect">
-    <a href="minecraft://connect/minegg.mine.bz" class="btn btn-primary">Connect</a>
+  <!-- What We Offer -->
+  <section id="info" class="server-info">
+    <h3>What We Offer</h3>
+    <div class="features-container">
+      <div class="feature-box">
+        <i class="fa-solid fa-heart fa-3x icon-lifesteal"></i>
+        <h4>Lifesteal Mechanics</h4>
+        <p>Gain strength as you survive and defeat others — your heart becomes your power!</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-hammer fa-3x icon-survival"></i>
+        <h4>Survival Gameplay</h4>
+        <p>Build, explore, gather resources, and thrive in a dynamic world.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-swords fa-3x icon-pvp"></i>
+        <h4>PvP Battles</h4>
+        <p>Test your combat skills in intense player-vs-player encounters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect section -->
+  <section id="connect" class="connect-section">
+    <a href="minecraft://connect/minegg.mine.bz" class="btn btn-primary">Join MineGG Now!</a>
+    <p class="server-ip">IP: <strong>minegg.mine.bz</strong></p>
   </section>
 
   <!-- Footer -->
-  <footer id="about" class="footer">
-    <p>MineGG Lifesteal – A unique Minecraft experience</p>
+  <footer id="about" class="footer-section">
+    <p>MineGG Lifesteal — Powered by our community</p>
     <p>© 2025 MineGG Network</p>
   </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

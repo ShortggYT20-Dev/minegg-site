@@ -1,220 +1,150 @@
-/* Theme Variables */
+/* GLOBAL VARIABLES */
 :root {
-  --bg-light: #f4f9ff;
-  --text-light: #20232a;
-  --card-light: #ffffff;
-  --border-light: #d1e4ff;
-
   --bg-dark: #0a0a18;
-  --text-dark: #e8e8f2;
+  --text-light: #e8e8f2;
   --card-dark: #131327;
-  --border-dark: #2a2a49;
-
-  --teal: #00e5c2;
-  --blue: #3ab7ff;
+  --accent-teal: #00e5c2;
+  --accent-blue: #3ab7ff;
 }
 
 html[data-theme="light"] {
-  --bg: var(--bg-light);
-  --text: var(--text-light);
-  --card-bg: var(--card-light);
-  --border: var(--border-light);
+  --bg: #f4f9ff;
+  --text: #20232a;
+  --card-bg: #ffffff;
+  --border: #d1e4ff;
 }
-
 html[data-theme="dark"] {
   --bg: var(--bg-dark);
-  --text: var(--text-dark);
+  --text: var(--text-light);
   --card-bg: var(--card-dark);
-  --border: var(--border-dark);
+  --border: #2a2a49;
 }
 
-/* Base Styles */
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
   text-align: center;
 }
 
-/* Theme Toggle */
-.theme-toggle {
+/* NAVIGATION */
+.nav-bar {
+  background: var(--card-bg);
+  border-bottom: 2px solid var(--border);
+  padding: 15px 0;
+}
+.nav-container {
   display: flex;
-  justify-content: center;
-  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
 }
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-}
-.switch input { display:none; }
-.slider {
-  position: absolute;
-  cursor: pointer;
-  background: var(--border);
-  border-radius: 24px;
-  width: 100%;
-  height: 100%;
-  transition: .4s;
-}
-.slider::before {
-  content: "";
-  position: absolute;
-  height: 18px;
-  width: 18px;
-  background: var(--teal);
-  border-radius: 50%;
-  transition: .4s;
-}
-input:checked + .slider::before {
-  transform: translateX(26px);
-}
-
-/* Header */
-.header {
-  padding: 20px 0;
-  font-size: 1.8rem;
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--text);
   font-weight: bold;
 }
-
-/* Hero */
-.hero {
-  padding: 30px 0;
-}
-.hero h2 {
-  color: var(--blue);
-}
-.hero p {
-  margin-top: 8px;
+.nav-links a:hover {
+  color: var(--accent-blue);
 }
 
-/* Feature Boxes Side-by-Side Section */
-.server-info {
-  padding: 30px 20px;
-  text-align: center;
+/* HERO */
+.hero-section {
+  padding: 60px 20px;
+  background: url('CobaltMC.webp') center/cover no-repeat; /* Your background image */
+  color: #fff;
 }
-
-/* Header for the section */
-.info-header {
-  font-size: 1.8rem;
+.hero-logo {
+  max-width: 180px;
   margin-bottom: 15px;
-  color: var(--blue);
+}
+.hero-buttons .btn {
+  margin: 8px;
 }
 
-/* Feature Boxes Container */
+/* BUTTONS */
+.btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+.btn-light {
+  background: #fff;
+  color: #000;
+}
+.btn-accent {
+  background: var(--accent-teal);
+  color: #000;
+}
+.btn-primary {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+/* STATUS SECTION */
+.status-section {
+  padding: 40px 15px;
+}
+.status-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 25px;
+  margin: auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+.server-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+/* FEATURES */
 .features-container {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin: auto;
-  max-width: 1000px;
-  padding-bottom: 30px;
+  margin: 30px auto;
 }
-
-/* Feature Box */
 .feature-box {
   background: var(--card-bg);
+  padding: 20px;
   border-radius: 12px;
-  padding: 25px;
-  flex: 1 1 280px;
-  max-width: 320px;
-  color: var(--text);
+  width: 280px;
   box-shadow:
-    0px 4px 8px rgba(0, 0, 0, 0.15),
-    0px 0px 12px var(--teal),
-    0px 0px 24px var(--blue);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+    0 4px 8px rgba(0,0,0,0.15),
+    0 0 12px var(--accent-teal),
+    0 0 20px var(--accent-blue);
+  transition: 0.3s ease;
 }
-
-/* Hover lift effect */
 .feature-box:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0px 8px 16px rgba(0, 0, 0, 0.25),
-    0px 0px 18px var(--teal),
-    0px 0px 30px var(--blue);
+  transform: translateY(-5px);
 }
-
-/* Icon Styles */
 .feature-box i {
   margin-bottom: 10px;
-  color: var(--teal);
 }
+.icon-lifesteal { color: var(--accent-teal); }
+.icon-survival { color: var(--accent-blue); }
+.icon-pvp { color: var(--accent-teal); }
 
-/* Individual icon styling if needed */
-.icon-survival {
-  color: var(--blue);
+/* CONNECT */
+.connect-section {
+  padding: 30px 0;
 }
-.icon-pvp {
-  color: var(--teal);
-}
-.icon-lifesteal {
-  color: var(--blue);
-}
-
-/* Headings & Text */
-.feature-box h4 {
-  margin: 8px 0;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-.feature-box p {
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 0 5px;
-}
-
-/* Server Status */
-.server-status {
-  padding: 30px 15px;
-}
-.status-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  display: inline-block;
-  padding: 25px;
-}
-.server-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 12px;
-}
-.status-indicator {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: red;
-  margin: auto;
-}
-.status-indicator.online {
-  background: var(--teal);
-}
-.stats div {
+.server-ip {
   margin-top: 8px;
+  font-size: 1.1rem;
 }
 
-/* Connect */
-.connect {
-  padding: 20px 0;
-}
-.btn-primary {
-  background: var(--teal);
-  color: #000;
-  padding: 14px 28px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-}
-.btn-primary:hover {
-  background: var(--blue);
-}
-
-/* Footer */
-.footer {
-  padding: 20px 0;
+/* FOOTER */
+.footer-section {
+  padding: 20px;
   font-size: 0.9rem;
+  opacity: 0.8;
 }
