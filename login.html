@@ -6,21 +6,17 @@
 </head>
 <body>
 
-<div class="admin-panel fade-up">
+<div class="admin-panel">
   <h2>Admin Login</h2>
-  <input type="password" id="password" placeholder="Password">
+  <input id="pass" type="password" placeholder="Password">
   <button class="btn" onclick="login()">Login</button>
   <p id="error"></p>
 </div>
 
 <script>
-  const PASSWORD = "admin123"; // CHANGE THIS
-
   function login() {
-    const input = password.value;
-    if (input === PASSWORD) {
+    if (pass.value === "admin123") {
       localStorage.setItem("adminAuth", "true");
-      localStorage.setItem("adminExpiry", Date.now() + 3600000);
       location.href = "admin.html";
     } else {
       error.textContent = "Wrong password";

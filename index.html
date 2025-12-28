@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minegg Network</title>
-
-  <link rel="icon" href="logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.png">
 </head>
 <body>
 
 <header class="navbar">
   <div class="container nav-flex">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Minegg Network">
+      <img src="logo.png" alt="Minegg">
     </a>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -22,33 +21,32 @@
     <nav id="nav-menu">
       <a href="#features">Features</a>
       <a href="#status">Status</a>
-      <a id="adminLink" href="login.html" class="btn small">Admin</a>
+      <a href="login.html" class="btn small">Admin</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <h1 class="fade-up">Minegg Network</h1>
-  <p class="fade-up">Premium Minecraft experience with blazing-fast servers.</p>
-  <button class="btn glow fade-up" onclick="copyIP()">Join Now</button>
+  <h1>Minegg Network</h1>
+  <p>Next-generation Minecraft network with smooth gameplay.</p>
+  <button class="btn glow" onclick="copyIP()">Join Now</button>
 </section>
 
 <section class="features" id="features">
   <div class="container grid">
-    <div class="card fade-up">⚡ Fast Servers</div>
-    <div class="card fade-up">🎮 Custom Gamemodes</div>
-    <div class="card fade-up">🛡️ Active Moderation</div>
+    <div class="card">⚡ Ultra-Fast Servers</div>
+    <div class="card">🎮 Custom Gameplay</div>
+    <div class="card">🛡️ Trusted Staff</div>
   </div>
 </section>
 
 <section class="status" id="status">
-  <div class="status-box fade-up">
+  <div class="status-box">
     <h2>Server Status</h2>
     <img id="server-icon" class="server-icon">
     <div id="motd"></div>
     <p id="server-ip"></p>
-    <div id="status-text">Checking...</div>
-    <div id="players"></div>
+    <p id="players"></p>
     <div id="player-list"></div>
   </div>
 </section>
