@@ -6,15 +6,13 @@
 </head>
 <body>
 
-<div class="card admin-panel">
+<form id="loginForm" class="card">
   <h2>Admin Login</h2>
-  <input id="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password">
-  <button class="btn" onclick="login()">Login</button>
-  <p id="error"></p>
-</div>
+  <input name="email" placeholder="Email" required>
+  <input name="password" type="password" placeholder="Password" required>
+  <button>Login</button>
+</form>
 
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
+<script type="module" src="js/auth.js"></script>
 </body>
 </html>

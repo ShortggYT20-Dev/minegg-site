@@ -1,17 +1,28 @@
-async function login() {
-  const { error } = await supabase.auth.signInWithPassword({
-    email: email.value,
-    password: password.value
-  });
+import { supabase } from "./supabase.js";
 
-  if (error) {
-    document.getElementById("error").textContent = error.message;
-  } else {
-    location.href = "admin.html";
-  }
+const form = document.getElementById("loginForm");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      window.location.href = "admin.html";
+    }
+  });
 }
 
-async function logout() {
+export async function logout() {
   await supabase.auth.signOut();
-  location.href = "login.html";
+  window.location.href = "login.html";
 }

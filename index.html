@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Minegg Network</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
 
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -18,40 +19,52 @@
     <nav>
       <a href="#status">Status</a>
       <a href="#join">How to Join</a>
-      <a href="login.html" class="btn small">Admin</a>
+      <a href="login.html">Admin</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <h1>Minegg Network</h1>
-  <p>Premium Minecraft experience</p>
-  <button class="btn glow" onclick="copyIP()">Join Now</button>
+  <p>Premium Minecraft Experience</p>
+  <button onclick="copyIP()">Join Now</button>
 </section>
 
 <section id="status" class="card">
   <h2>Server Status</h2>
-  <img id="serverIcon" class="server-icon">
+
+  <img id="server-icon" width="64">
+
   <p id="motd"></p>
-  <p>IP: <span id="serverIP"></span></p>
-  <p>Players: <span id="players"></span></p>
-  <p>Status: <span id="statusText"></span></p>
-  <canvas id="playerGraph"></canvas>
+  <p><b>IP:</b> <span id="server-ip"></span></p>
+  <p><b>Players:</b> <span id="players"></span></p>
+  <p><b>Status:</b> <span id="status-text"></span></p>
+
+  <canvas id="playerGraph" height="120"></canvas>
 </section>
 
 <section id="join" class="card">
   <h2>How to Join</h2>
-  <p>Open Minecraft → Multiplayer → Add Server</p>
-  <p>IP: <b id="joinIP"></b></p>
+  <ol>
+    <li>Open Minecraft Java Edition</li>
+    <li>Multiplayer → Add Server</li>
+    <li>Paste IP</li>
+    <li>Join!</li>
+  </ol>
 </section>
 
 <section class="card">
-  <iframe id="discordWidget" width="350" height="500"></iframe>
+  <iframe
+    id="discordFrame"
+    width="350"
+    height="500"
+    frameborder="0"
+    sandbox="allow-same-origin allow-scripts allow-popups"
+  ></iframe>
 </section>
 
-<script src="js/config.js"></script>
-<script src="js/site.js"></script>
-<script src="js/realtime.js"></script>
-<script src="js/graph.js"></script>
+<div id="toast">IP Copied!</div>
+
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
