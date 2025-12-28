@@ -13,18 +13,22 @@
 
 <header class="navbar">
   <div class="container nav-flex">
-    <!-- LOGO -->
-    <div class="logo">
+
+    <!-- LOGO (clickable) -->
+    <a href="index.html" class="logo">
       <img src="logo.png" alt="Minegg Network Logo">
-    </div>
+    </a>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <nav id="nav-menu">
       <a href="#features">Features</a>
       <a href="#status">Status</a>
-      <a href="login.html" class="btn small">Admin</a>
+
+      <!-- ADMIN LINK (dynamic) -->
+      <a id="adminLink" href="login.html" class="btn small">Admin</a>
     </nav>
+
   </div>
 </header>
 
@@ -75,5 +79,21 @@
 <div id="toast">IP Copied!</div>
 
 <script src="script.js"></script>
+
+<!-- ✅ ADMIN AUTH STATE -->
+<script>
+  const adminLink = document.getElementById("adminLink");
+  const expiry = localStorage.getItem("adminExpiry");
+
+  if (
+    localStorage.getItem("adminAuth") === "true" &&
+    expiry &&
+    Date.now() < expiry
+  ) {
+    adminLink.textContent = "Admin Panel";
+    adminLink.href = "admin.html";
+  }
+</script>
+
 </body>
 </html>
