@@ -103,102 +103,6 @@ input:checked + .slider::before {
   color: var(--blue);
 }
 
-/* Flex container that holds the feature boxes */
-.features-container {
-  display: flex;               /* Makes children sit side by side */ 
-  justify-content: center;     /* Center horizontally */ 
-  gap: 20px;                   /* Space between boxes */ 
-  flex-wrap: wrap;             /* Wrap on smaller screens */ 
-  margin: auto;
-  max-width: 1000px;
-}
-
-/* Individual feature box */
-.feature-box {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 20px;
-  flex: 1 1 280px;           /* Flex: grow, shrink, base-width (responsive) */
-  max-width: 320px;
-  color: var(--text);
-  box-shadow:
-    0px 4px 8px rgba(0, 0, 0, 0.15),
-    0px 0px 12px var(--teal),
-    0px 0px 24px var(--blue);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Hover effect */
-.feature-box:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0px 8px 16px rgba(0, 0, 0, 0.25),
-    0px 0px 18px var(--teal),
-    0px 0px 30px var(--blue);
-}
-
-.feature-box h4 {
-  margin-bottom: 8px;
-  font-size: 1.4rem;
-  color: var(--teal);
-}
-
-.feature-box p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Server Status */
-.server-status {
-  padding: 30px 15px;
-}
-.status-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  display: inline-block;
-  padding: 25px;
-}
-.server-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 12px;
-}
-.status-indicator {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: red;
-  margin: auto;
-}
-.status-indicator.online {
-  background: var(--teal);
-}
-.stats div {
-  margin-top: 8px;
-}
-
-/* Connect */
-.connect {
-  padding: 20px 0;
-}
-.btn-primary {
-  background: var(--teal);
-  color: #000;
-  padding: 14px 28px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-}
-.btn-primary:hover {
-  background: var(--blue);
-}
-
-/* Footer */
-.footer {
-  padding: 20px 0;
-  font-size: 0.9rem;
-}
 /* Feature Boxes Container */
 .features-container {
   display: flex;
@@ -261,4 +165,56 @@ input:checked + .slider::before {
   font-size: 1rem;
   line-height: 1.5;
   padding: 0 5px;
+}
+
+/* Server Status */
+.server-status {
+  padding: 30px 15px;
+}
+.status-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: inline-block;
+  padding: 25px;
+}
+.server-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 12px;
+}
+.status-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: red;
+  margin: auto;
+}
+.status-indicator.online {
+  background: var(--teal);
+}
+.stats div {
+  margin-top: 8px;
+}
+
+/* Connect */
+.connect {
+  padding: 20px 0;
+}
+.btn-primary {
+  background: var(--teal);
+  color: #000;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.btn-primary:hover {
+  background: var(--blue);
+}
+
+/* Footer */
+.footer {
+  padding: 20px 0;
+  font-size: 0.9rem;
 }
