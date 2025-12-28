@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
 
-<script type="module" src="js/guard.js"></script>
+<div class="container">
+  <h1>Admin Dashboard</h1>
 
-<div class="card">
-  <h2>Website Settings</h2>
+  <div class="grid">
+    <div class="card glow-border">
+      <h3>Server Settings</h3>
+      <input placeholder="Server IP">
+    </div>
 
-  <input id="serverIP" placeholder="Server IP">
-  <input id="discordID" placeholder="Discord Server ID">
-
-  <button id="saveSettings">Save</button>
-  <button onclick="logout()">Logout</button>
+    <div class="card glow-border">
+      <h3>Discord Widget</h3>
+      <input placeholder="Discord Embed URL">
+    </div>
+  </div>
 </div>
-
-<script type="module">
-  import "./js/settings.js";
-  import { logout } from "./js/auth.js";
-</script>
 
 </body>
 </html>

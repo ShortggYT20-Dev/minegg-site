@@ -2,75 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Minegg Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="assets/logo.png">
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="icon" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body data-theme="dark">
 
 <header class="navbar">
   <div class="container nav-flex">
-    <img src="assets/logo.png" class="logo">
+    <div class="logo">
+      <img src="logo.png">
+    </div>
+
     <nav>
+      <a href="#features">Features</a>
       <a href="#status">Status</a>
-      <a href="#join">How to Join</a>
-      <a href="login.html">Admin</a>
+      <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+      <a href="login.html" class="btn small">Admin</a>
     </nav>
   </div>
 </header>
 
-<section class="features container grid">
-  <div class="card">⚡ Fast Infrastructure</div>
-  <div class="card">🎮 Custom Gamemodes</div>
-  <div class="card">🛡️ Active Moderation</div>
-</section>
-
-<section class="hero">
+<section class="hero fade-in">
   <h1>Minegg Network</h1>
-  <p>Premium Minecraft Experience</p>
-  <button onclick="copyIP()">Join Now</button>
+  <p>Premium Minecraft experience with modern infrastructure</p>
+  <button class="btn glow">Join Now</button>
 </section>
 
-<section id="status" class="card">
-  <h2>Server Status</h2>
-
-  <img id="server-icon" width="64">
-
-  <p id="motd"></p>
-  <p><b>IP:</b> <span id="server-ip"></span></p>
-  <p><b>Players:</b> <span id="players"></span></p>
-  <p><b>Status:</b> <span id="status-text"></span></p>
-
-  <canvas id="playerGraph" height="120"></canvas>
+<section id="features" class="container grid">
+  <div class="card glow-border slide-up">⚡ Fast Infrastructure</div>
+  <div class="card glow-border slide-up">🎮 Custom Gamemodes</div>
+  <div class="card glow-border slide-up">🛡️ Active Moderation</div>
 </section>
 
-<section id="join" class="card">
-  <h2>How to Join</h2>
-  <ol>
-    <li>Open Minecraft Java Edition</li>
-    <li>Multiplayer → Add Server</li>
-    <li>Paste IP</li>
-    <li>Join!</li>
-  </ol>
+<section id="status" class="container">
+  <div class="status-box glow-border fade-in">
+    <h2>Server Status</h2>
+    <img id="server-icon" class="server-icon">
+    <div id="motd"></div>
+    <p>IP: <span id="server-ip"></span></p>
+    <p>Players: <span id="players"></span></p>
+    <p id="status-text">Checking...</p>
+  </div>
 </section>
 
-<section class="card">
-  <iframe
-    id="discordFrame"
-    width="350"
-    height="500"
-    frameborder="0"
-    sandbox="allow-same-origin allow-scripts allow-popups"
-  ></iframe>
-</section>
+<footer>
+  © 2025 Minegg Network
+</footer>
 
-<div id="toast">IP Copied!</div>
-
-<script type="module" src="js/main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
