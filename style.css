@@ -252,3 +252,20 @@ input {
     display: block;
   }
 }
+
+/* ---------- PING ---------- */
+#ping {
+  font-weight: 700;
+}
+
+#ping.good {
+  color: #22c55e;
+}
+
+#ping.ok {
+  color: #facc15;
+}
+
+#ping.bad {
+  color: #ef4444;
+}

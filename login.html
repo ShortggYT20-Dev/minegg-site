@@ -8,18 +8,18 @@
 
 <div class="admin-panel">
   <h2>Admin Login</h2>
-  <input id="pass" type="password" placeholder="Password">
+  <input id="password" type="password" placeholder="Password">
   <button class="btn" onclick="login()">Login</button>
   <p id="error"></p>
 </div>
 
 <script>
   function login() {
-    if (pass.value === "admin123") {
+    if (password.value === "admin123") {
       localStorage.setItem("adminAuth", "true");
       location.href = "admin.html";
     } else {
-      error.textContent = "Wrong password";
+      error.textContent = "Incorrect password";
     }
   }
 </script>

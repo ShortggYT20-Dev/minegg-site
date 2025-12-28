@@ -16,7 +16,7 @@
   <h2>Admin Panel</h2>
 
   <input id="ipInput" placeholder="Server IP">
-  <input id="refreshInput" type="number" min="5" placeholder="Refresh Interval">
+  <input id="refreshInput" type="number" min="5" placeholder="Refresh (seconds)">
   <input id="discordInput" placeholder="Discord Widget URL">
 
   <button class="btn" onclick="save()">Save</button>
@@ -34,8 +34,7 @@
     localStorage.setItem("refreshInterval", refreshInput.value);
     localStorage.setItem("discordWidget", discordInput.value);
     saved.textContent = "Saved ✔";
-
-    setTimeout(() => location.href = "index.html", 1200);
+    setTimeout(() => location.href = "index.html", 1000);
   }
 
   function logout() {

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Minegg Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="logo.png">
@@ -13,7 +14,7 @@
 <header class="navbar">
   <div class="container nav-flex">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Minegg">
+      <img src="logo.png" alt="Minegg Logo">
     </a>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -28,26 +29,56 @@
 
 <section class="hero">
   <h1>Minegg Network</h1>
-  <p>Next-generation Minecraft network with smooth gameplay.</p>
+  <p>Premium Minecraft experience with blazing-fast servers.</p>
   <button class="btn glow" onclick="copyIP()">Join Now</button>
 </section>
 
 <section class="features" id="features">
   <div class="container grid">
-    <div class="card">⚡ Ultra-Fast Servers</div>
-    <div class="card">🎮 Custom Gameplay</div>
-    <div class="card">🛡️ Trusted Staff</div>
+    <div class="card">⚡ Fast Infrastructure</div>
+    <div class="card">🎮 Custom Gamemodes</div>
+    <div class="card">🛡️ Active Moderation</div>
   </div>
 </section>
 
 <section class="status" id="status">
   <div class="status-box">
     <h2>Server Status</h2>
+
     <img id="server-icon" class="server-icon">
+
     <div id="motd"></div>
-    <p id="server-ip"></p>
-    <p id="players"></p>
-    <div id="player-list"></div>
+
+    <p><strong>IP:</strong> <span id="server-ip"></span></p>
+    <p><strong>Players:</strong> <span id="players">0/0</span></p>
+    <p><strong>Ping:</strong> <span id="ping">-- ms</span></p>
+
+    <p id="server-status" class="status-indicator">Checking...</p>
+  </div>
+</section>
+
+<section class="how-to-join">
+  <div class="container">
+    <h2>How to Join</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1️⃣ Open Minecraft</h3>
+        <p>Java Edition (1.8+)</p>
+      </div>
+
+      <div class="card">
+        <h3>2️⃣ Add Server</h3>
+        <p>Multiplayer → Add Server</p>
+      </div>
+
+      <div class="card">
+        <h3>3️⃣ Join</h3>
+        <p>IP: <strong id="join-ip"></strong></p>
+      </div>
+    </div>
+
+    <button class="btn glow" onclick="copyIP()">Copy IP</button>
   </div>
 </section>
 
