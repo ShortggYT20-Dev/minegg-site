@@ -21,6 +21,19 @@ fetch(`https://api.mcsrvstat.us/3/${ip}`)
     }
   });
 
+  window.addEventListener("load", () => {
+  if (window.location.hash) {
+    const id = window.location.hash.substring(1);
+    const target = document.getElementById(id);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    }
+  }
+});
+
+
 function toggleTheme() {
   const body = document.body;
   body.dataset.theme =
