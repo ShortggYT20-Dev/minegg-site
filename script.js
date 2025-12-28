@@ -1,30 +1,46 @@
-const ip = localStorage.getItem("serverIP") || "play.minegg.net";
-const refresh = (localStorage.getItem("refreshInterval") || 30) * 1000;
+const API = "https://api.mcsrvstat.us/2/";
+const serverIP = localStorage.getItem("serverIP") || "play.minegg.net";
 
-document.getElementById("server-ip").textContent = ip;
+document.getElementById("server-ip").textContent = serverIP;
 
 function fetchStatus() {
-  fetch(`https://api.mcsrvstat.us/2/${ip}`)
-    .then(r => r.json())
-    .then(d => {
-      online.textContent = d.online ? "🟢 Online" : "🔴 Offline";
-      players.textContent = `${d.players?.online || 0}/${d.players?.max || 0}`;
-      motd.innerHTML = d.motd?.html?.join("<br>") || "";
-      ping.textContent =
-        typeof d.debug?.ping === "number" ? d.debug.ping + " ms" : "-- ms";
+  fetch(API + serverIP)
+    .then(res => res.json())
+    .then(data => {
+      const statusText = document.getElementById("status-text");
+      const players = document.getElementById("players");
+      const motd = document.getElementById("motd");
+      const icon = document.getElementById("server-icon");
+      const ping = document.getElementById("ping");
 
-      if (d.icon) serverIcon.src = d.icon;
+      if (data.online) {
+        statusText.textContent = "Online";
+        statusText.className = "status-online";
 
-      playerList.innerHTML =
-        d.players?.list?.map(p => `<div>${p}</div>`).join("") || "";
+        players.textContent = `${data.players.online}/${data.players.max}`;
+        motd.textContent = data.motd.clean.join(" ");
+        icon.src = data.icon || "";
+        ping.textContent = data.debug?.ping ? `${data.debug.ping} ms` : "-- ms";
+      } else {
+        statusText.textContent = "Offline";
+        statusText.className = "status-offline";
+
+        players.textContent = "0/0";
+        motd.textContent = "Server is offline";
+        icon.src = "";
+        ping.textContent = "-- ms";
+      }
     });
 }
 
 fetchStatus();
-setInterval(fetchStatus, refresh);
+setInterval(fetchStatus, 30000);
+
+/* UI */
 
 function copyIP() {
-  navigator.clipboard.writeText(ip);
+  navigator.clipboard.writeText(serverIP);
+  const toast = document.getElementById("toast");
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 2000);
 }
@@ -32,6 +48,3 @@ function copyIP() {
 function toggleMenu() {
   document.getElementById("nav-menu").classList.toggle("show");
 }
-
-const discord = localStorage.getItem("discordWidget");
-if (discord) discordWidget.src = discord;

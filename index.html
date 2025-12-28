@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Minegg Network</title>
 
-  <link rel="icon" href="logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
 <header class="navbar">
   <div class="container nav-flex">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Minegg Logo">
+      <img src="logo.png" alt="Minegg Network Logo">
     </a>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <nav id="nav-menu">
-      <a href="#how">How to Join</a>
+      <a href="#features">Features</a>
       <a href="#status">Status</a>
       <a href="login.html" class="btn small">Admin</a>
     </nav>
@@ -28,45 +28,52 @@
 </header>
 
 <section class="hero">
-  <h1>Minegg Network</h1>
-  <p>Modern Minecraft. Fast. Competitive.</p>
-  <button class="btn primary glow" onclick="copyIP()">Join Server</button>
-</section>
-
-<section id="how" class="section">
-  <h2>How to Join</h2>
-  <div class="grid">
-    <div class="card">1️⃣ Open Minecraft</div>
-    <div class="card">2️⃣ Multiplayer → Add Server</div>
-    <div class="card">3️⃣ Join & Play</div>
+  <div class="container">
+    <h1>Minegg Network</h1>
+    <p>Premium Minecraft experience with custom features.</p>
+    <button class="btn glow" onclick="copyIP()">Join Now</button>
   </div>
 </section>
 
-<section id="status" class="section">
-  <div class="status-card">
+<section class="status" id="status">
+  <div class="container status-box">
     <h2>Server Status</h2>
 
-    <img id="server-icon" class="server-icon">
-    <div id="motd" class="muted"></div>
+    <img id="server-icon" class="server-icon" />
 
-    <div class="stats">
-      <div><span>IP: </span><b id="server-ip"></b></div>
-      <div><span>Players: </span><b id="players"></b></div>
-      <div><span>Status: </span><b id="online"></b></div>
-      <div><span>Ping: </span><b id="ping"></b></div>
-    </div>
+    <div id="motd"></div>
+    <p><strong>IP:</strong> <span id="server-ip"></span></p>
+    <p><strong>Players:</strong> <span id="players"></span></p>
 
-    <div id="player-list" class="player-list"></div>
+    <p>
+      <strong>Status:</strong>
+      <span id="status-text">Checking...</span>
+    </p>
+
+    <p>
+      <strong>Ping:</strong>
+      <span id="ping">-- ms</span>
+    </p>
   </div>
 </section>
 
 <section class="discord">
-  <iframe id="discordWidget" width="350" height="500" frameborder="0"></iframe>
+  <iframe
+    id="discordWidget"
+    src=""
+    width="350"
+    height="500"
+    allowtransparency="true"
+    frameborder="0"
+    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+  </iframe>
 </section>
 
-<footer>© 2025 Minegg Network</footer>
+<footer>
+  © 2025 Minegg Network
+</footer>
 
-<div id="toast">IP Copied</div>
+<div id="toast">IP Copied!</div>
 
 <script src="script.js"></script>
 </body>
