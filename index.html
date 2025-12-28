@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MineGG Lifesteal | Server Status</title>
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7ieYnE1/jiYFZjD4E4Oyj8K6oS4M+5N4qDmq+/FtpRgOiFjT56Qm/1j7g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,35 +27,45 @@
     <span id="themeLabel">Light Mode</span>
   </div>
 
-  <!-- Header -->
   <header class="header">
     <h1 class="logo">MineGG Lifesteal</h1>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <h2>Welcome to MineGG Lifesteal</h2>
-    <p>A unique Minecraft experience with Survival, Lifesteal & PvP!</p>
+    <p>Your ultimate Minecraft experience — Lifesteal, Survival & PvP!</p>
   </section>
 
+  <!-- What We Offer -->
   <section id="info" class="server-info">
-  <h3 class="info-header">What We Offer</h3>
-  <div class="features-container">
-    <div class="feature-box">
-      <h4>Lifesteal Mechanics</h4>
-      <p>Gain strength as you survive and defeat others — your health becomes your power!</p>
-    </div>
-    <div class="feature-box">
-      <h4>Survival Gameplay</h4>
-      <p>Build, explore, gather resources, and thrive in a dynamic world.</p>
-    </div>
-    <div class="feature-box">
-      <h4>PvP Battles</h4>
-      <p>Test your combat skills against friends and foes in intense player vs. player encounters.</p>
-    </div>
-  </div>
-</section>
+    <h3 class="info-header">What We Offer</h3>
 
+    <div class="features-container">
+
+      <!-- Lifesteal Box -->
+      <div class="feature-box">
+        <i class="fa-solid fa-heart fa-3x fa-beat icon-lifesteal"></i>
+        <h4>Lifesteal Mechanics</h4>
+        <p>Gain strength as you survive and defeat others — your health becomes your power!</p>
+      </div>
+
+      <!-- Survival Box -->
+      <div class="feature-box">
+        <i class="fa-solid fa-hammer fa-3x fa-pulse icon-survival"></i>
+        <h4>Survival Gameplay</h4>
+        <p>Build, explore, gather resources, and thrive in a dynamic world.</p>
+      </div>
+
+      <!-- PvP Box -->
+      <div class="feature-box">
+        <i class="fa-solid fa-swords fa-3x icon-pvp"></i>
+        <h4>PvP Battles</h4>
+        <p>Test your combat skills against friends and foes in intense player v player encounters.</p>
+      </div>
+
+    </div>
+  </section>
+  
   <!-- Server Status -->
   <section id="status" class="server-status">
     <div class="status-card">
