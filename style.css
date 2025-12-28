@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+/* ---------- GLOBAL IMAGE SAFETY ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 body {
   margin: 0;
   font-family: Poppins, sans-serif;
@@ -34,12 +41,23 @@ body {
   padding: 14px 0;
 }
 
-/* 🔽 LOGO SIZE FIX */
-.logo img {
-  height: 32px;       /* smaller default size */
-  width: auto;
-  display: block;
+/* ---------- LOGO (HARD SIZE LOCK) ---------- */
+
+.logo {
+  display: flex;
+  align-items: center;
+  max-height: 42px;
 }
+
+.logo img {
+  height: 32px;
+  max-height: 32px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+/* ---------- NAV LINKS ---------- */
 
 nav a {
   margin-left: 20px;
@@ -142,7 +160,6 @@ nav a {
 .player-list {
   margin-top: 15px;
   color: #c7d2fe;
-  text-align: center;
 }
 
 /* ---------- DISCORD ---------- */
@@ -206,9 +223,9 @@ input {
 
 @media (max-width: 768px) {
 
-  /* 🔽 EVEN SMALLER LOGO ON MOBILE */
   .logo img {
     height: 26px;
+    max-height: 26px;
   }
 
   nav {
