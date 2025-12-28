@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Admin Panel</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -8,35 +9,48 @@
 
 <script>
   const expiry = localStorage.getItem("adminExpiry");
-  if (localStorage.getItem("adminAuth") !== "true" || Date.now() > expiry) {
+
+  if (
+    localStorage.getItem("adminAuth") !== "true" ||
+    !expiry ||
+    Date.now() > expiry
+  ) {
     localStorage.clear();
     location.href = "login.html";
   }
 </script>
 
-<div class="admin-panel fade-up">
+<div class="admin-panel">
   <h2>Admin Panel</h2>
 
-  <input id="ip" placeholder="Server IP">
-  <input id="refresh" type="number" min="5" placeholder="Refresh Interval (sec)">
-  <input id="discord" placeholder="Discord Widget Embed URL">
+  <input id="ipInput" placeholder="Minecraft Server IP">
+  <input id="refreshInput" type="number" min="5" placeholder="Refresh interval (seconds)">
+  <input id="discordInput" placeholder="Discord Widget URL">
 
-  <button class="btn" onclick="save()">Save</button>
+  <button class="btn" onclick="saveSettings()">Save Settings</button>
   <button class="btn small" onclick="logout()">Logout</button>
 
   <p id="saved"></p>
 </div>
 
 <script>
-  ip.value = localStorage.getItem("serverIP") || "play.minegg.net";
-  refresh.value = localStorage.getItem("refreshInterval") || 30;
-  discord.value = localStorage.getItem("discordWidget") || "";
+  const ipInput = document.getElementById("ipInput");
+  const refreshInput = document.getElementById("refreshInput");
+  const discordInput = document.getElementById("discordInput");
+  const saved = document.getElementById("saved");
 
-  function save() {
-    localStorage.setItem("serverIP", ip.value.trim());
-    localStorage.setItem("refreshInterval", refresh.value);
-    localStorage.setItem("discordWidget", discord.value.trim());
+  ipInput.value = localStorage.getItem("serverIP") || "play.minegg.net";
+  refreshInput.value = localStorage.getItem("refreshInterval") || 30;
+  discordInput.value = localStorage.getItem("discordWidget") || "";
+
+  function saveSettings() {
+    localStorage.setItem("serverIP", ipInput.value.trim());
+    localStorage.setItem("refreshInterval", refreshInput.value);
+    localStorage.setItem("discordWidget", discordInput.value.trim());
+
     saved.textContent = "Saved ✔";
+    saved.style.color = "#22c55e";
+
     setTimeout(() => saved.textContent = "", 2000);
   }
 
