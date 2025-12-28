@@ -90,21 +90,62 @@ input:checked + .slider::before {
   margin-top: 8px;
 }
 
-/* Server Info */
+/* Feature Boxes Side-by-Side Section */
 .server-info {
-  padding: 25px 15px;
+  padding: 30px 20px;
+  text-align: center;
 }
-.info-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 700px;
+
+/* Header for the section */
+.info-header {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--blue);
+}
+
+/* Flex container that holds the feature boxes */
+.features-container {
+  display: flex;               /* Makes children sit side by side */ 
+  justify-content: center;     /* Center horizontally */ 
+  gap: 20px;                   /* Space between boxes */ 
+  flex-wrap: wrap;             /* Wrap on smaller screens */ 
   margin: auto;
+  max-width: 1000px;
 }
-.info-card p {
-  margin: 12px 0;
+
+/* Individual feature box */
+.feature-box {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1 1 280px;           /* Flex: grow, shrink, base-width (responsive) */
+  max-width: 320px;
+  color: var(--text);
+  box-shadow:
+    0px 4px 8px rgba(0, 0, 0, 0.15),
+    0px 0px 12px var(--teal),
+    0px 0px 24px var(--blue);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.feature-box:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0px 8px 16px rgba(0, 0, 0, 0.25),
+    0px 0px 18px var(--teal),
+    0px 0px 30px var(--blue);
+}
+
+.feature-box h4 {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  color: var(--teal);
+}
+
+.feature-box p {
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* Server Status */
